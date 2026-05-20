@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: nginx-app-deploy
 spec:
-  replicas: 4
+  replicas: 5
   selector:
     matchLabels:
       app: nginx-app
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nginx-app
-        image: powermvp/nginxweb:v3.0
+        image: powermvp/nginxweb:v2.0
         ports:
         - containerPort: 80
         resources:
