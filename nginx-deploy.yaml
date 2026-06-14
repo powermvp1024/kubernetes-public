@@ -18,6 +18,6 @@ spec:
       - name: ecr-secret
       containers:
       - name: eks-nginx
-        image: 936373078598.dkr.ecr.ap-northeast-2.amazonaws.com/eks-nginx:v2.0
+        image: 936373078598.dkr.ecr.ap-northeast-2.amazonaws.com/eks-nginx:v1.0
         ports:
         - containerPort: 80
