@@ -1,27 +1,23 @@
-# Deploy 생성 (파드는 3개)
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-app-deploy
+  name: nginx-deployment
+  labels:
+    app: nginx
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
-      app: nginx-app
+      app: nginx
   template:
     metadata:
       labels:
-        app: nginx-app
+        app: nginx
     spec:
+      imagePullSecrets:
+      - name: ecr-secret
       containers:
-      - name: nginx-app
-        image: powermvp/nginxweb:v2.0
+      - name: eks-nginx
+        image: 936373078598.dkr.ecr.ap-northeast-2.amazonaws.com/eks-nginx:v1.0
         ports:
         - containerPort: 80
-        resources:
-          limits:
-            cpu: 200m
-            memory: 256Mi
-          requests:
-            cpu: 200m
-            memory: 256Mi
